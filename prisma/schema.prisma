@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:dev.db"
+}
+
+model Album {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  mediaUrl  String
+  tweetId   String
+  index     Int
+  userId    Int
+}
+
+// The underlying table does not contain a valid unique identifier and can therefore currently not be handled.
+// model test {
+  // This type is currently not supported.
+  // id   ?
+  // This type is currently not supported.
+  // name ?
+// }
